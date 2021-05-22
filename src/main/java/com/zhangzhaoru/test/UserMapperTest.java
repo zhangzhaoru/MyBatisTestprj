@@ -25,5 +25,6 @@ public class UserMapperTest {
         for (User user : users) {
             System.out.println(user);
         }
+        sqlSession.close();
     }
 }
