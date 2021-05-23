@@ -8,4 +8,14 @@
     <select id="getAllUser" resultType="user">
         SELECT  * FROM user
     </select>
+
+    <resultMap id="UserMap" type="user">
+        <!--column数据库中的字段，property实体类中的属性-->
+        <result column="user_name" property="username"></result>
+        <result column="pwd" property="password"></result>
+    </resultMap>
+
+    <select id="getUser"  resultMap="UserMap" parameterType="map">
+        SELECT * FROM user WHERE user_name=#{username} AND password=#{password};
+    </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.zhangzhaoru.dao;
 
 import com.zhangzhaoru.pojo.User;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -15,5 +16,7 @@ import java.util.List;
 public interface UserMapper {
 
     public List<User> getAllUser();
+
+    public User getUser(HashMap<String,Object> map);
 
 }

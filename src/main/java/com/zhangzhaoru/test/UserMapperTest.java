@@ -6,6 +6,7 @@ import com.zhangzhaoru.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,5 +27,17 @@ public class UserMapperTest {
             System.out.println(user);
         }
         sqlSession.close();
+    }
+
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        HashMap<String, Object> map = new HashMap<>();
+        User user = new User("林志颖", "654321");
+        map.put("username",user.getUsername());
+        map.put("password",user.getPassword());
+        User user1 = mapper.getUser(map);
+        System.out.println(user1);
     }
 }
