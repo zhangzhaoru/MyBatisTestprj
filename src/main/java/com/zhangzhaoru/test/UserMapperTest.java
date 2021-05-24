@@ -1,6 +1,8 @@
 package com.zhangzhaoru.test;
 
+import com.zhangzhaoru.dao.TeacherMapper;
 import com.zhangzhaoru.dao.UserMapper;
+import com.zhangzhaoru.pojo.Teacher;
 import com.zhangzhaoru.pojo.User;
 import com.zhangzhaoru.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -39,5 +41,13 @@ public class UserMapperTest {
         map.put("password",user.getPassword());
         User user1 = mapper.getUser(map);
         System.out.println(user1);
+    }
+
+    @Test
+    public void test3() {
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher = mapper.getTeacherById(2);
+        System.out.println(teacher);
     }
 }

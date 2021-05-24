@@ -34,5 +34,6 @@
 <!--    注册mapper.xml文件-->
     <mappers>
         <mapper class="com.zhangzhaoru.dao.UserMapper"/>
+        <mapper class="com.zhangzhaoru.dao.TeacherMapper"/>
     </mappers>
 </configuration>
